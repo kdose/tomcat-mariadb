@@ -10,7 +10,7 @@ sleep $WAIT_FOR_DB_INIT
 /usr/local/tomcat/bin/catalina.sh run &
 TOMPID=$!
 
-trap "{ kill -TERM $TOMPID; wait $TOMPID; kill -TERM $MYPID; wait; }" SIGTERM
+trap "{ kill -TERM $TOMPID; wait $TOMPID; kill -TERM $MYPID; wait; }" SIGTERM SIGINT
 trap "{ kill -KILL $TOMPID; wait $TOMPID; kill -KILL $MYPID; wait; }" SIGKILL
 
 
